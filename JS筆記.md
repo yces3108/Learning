@@ -34,3 +34,14 @@ block是一個用大括號{}包成的區塊
 功能: .length(), .push(), .pop(), .join(), .slice(),  
 .splice(), .shift()移除第一個, .unshift()從排頭添加, .indexOf(), and .concat()
 ## Higher-order functions
+    const addTwo = num => num + 2;
+    const checkConsistentOutput = (func, val) => {
+      let firstTry = func(val);
+      let secondTry = func(val);
+      if (firstTry === secondTry) {
+        return firstTry;
+      } else {
+        return 'This function returned inconsistent results';
+      } 
+    }
+    checkConsistentOutput(addTwo, 100);
