@@ -1,0 +1,88 @@
+2019.9.24 codecademy
+
+1. Element and structure
+1.1 Introduction to HTML
+用bracket當作開發工具
+
+從google font找到這兩個字體
+<link href="https://fonts.googleapis.com/css?family=Lato|Oswald&display=swap" rel="stylesheet"> 
+    font-family: 'Lato', sans-serif;
+    font-family: 'Oswald', sans-serif;
+
+網站架構:
+index.html
+folder: images styles scripts 
+
+HTML 是一種標記語言（markup language）。HTML 包含了一系列的元素（elements），而元素包含了標籤（tags）與內容（content）
+
+在body裡插入圖片
+<img src="images\隊徽.png" alt="隊徽">
+
+標題 <h1>~<h6>
+段落 paragraph <p>
+分層 division <div>
+特定文字 span <span>
+強調(斜體) emphasis <em>
+粗體 strong <strong>
+換行 line break <br>
+清單 <ul>無序 <ol>有序 <li>清單內項目
+圖片 image <img>
+	來源 <src> 替代文字 <alt> 
+影片 video <video>
+
+End of introduction
+
+1.2 HTML document standards
+文件的一開始：<!DOCTYPE html>
+接下來要有<html></html>包東西
+網站的<body>前面有<head> 可以放metadata
+連結 anchor <a href="https://www.facebook.com/ntubt/">NTU Baseball</a>
+在新視窗開啟 <a href="https://en.wikipedia.org/wiki/Brown_bear" target="_blank">The Brown Bear</a>
+連結相對位址<a href="./index.html">Brown Bear</a>
+連結也可以是圖片<a href="https://en.wikipedia.org/wiki/Opuntia" target="_blank"><img src="#" alt="A red prickly pear fruit"/></a>
+頁內連結：可以用<a href="#introduction">Introduction</a> 跳到id="introduction"的標籤
+註解 <!-- This is a comment that the browser will not display. -->
+
+2. Tables
+2.1 Tables
+表格 table <table> 列 table row <tr> 內容 table data <td> 項目標題 table heading <th>
+一格變兩格 <td colspan="2">Out of Town</td>
+標題、內容、底 heading, body, footer <thead> <tbody> <tfoot>
+
+3. Forms
+3.1 Forms
+用HTTP request讓電腦知道如何互相連通
+<form>可以用來蒐集HTTP資料
+<form action="/example.html" method="POST">
+</form>
+  <h1>Creating a form</h1>
+  <p>Looks like you want to learn how to create an HTML form. Well, the best way to learn is to play around with it.</p>
+如此可以傳送資料去example.html
+<input>有一個type屬性 例如"text" 他就成為一個text物件 物件可以設定name和value
+<label>有一個for屬性 會跟<input>的id屬性連動
+<input>的type設為password就可以輸入密碼!
+<input>的type設為number數字 <input type="number" step="1" name="amount" id="amount">
+<input>的type設為range 可以變拉桿
+<input>的type設為checkbox可以打勾勾
+<input>的type設為radio可以變按鈕
+<select>是下拉選單 裡面放<option>
+<select id="lunch" name="lunch">
+    <option value="pizza">Pizza</option>
+    <option value="curry">Curry</option>
+    <option value="salad">Salad</option>
+    <option value="ramen">Ramen</option>
+    <option value="tacos">Tacos</option>
+  </select>
+<datalist>一樣是下拉選單 不過可以自己輸入選項 裡面放<option>
+<textarea>跟<input type="text">一樣能打字 但是是對話框的形式
+<input>的type設為submit是最後的提交
+上面這些東西都可以用<section>分隔 然後用class屬性來區分彼此
+
+3.2 Form validation
+伺服端驗證/用戶端驗證
+在<input>的屬性加上required 表示一定要輸入數值
+<input type="text"> 可以設定min/maxlength 用pattern限制輸入的內容
+
+4. Semantic
+4.1 Semantic
+Semantic HTML: 每個element都有其意義(像<div><span>就沒有)

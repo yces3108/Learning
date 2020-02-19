@@ -1,0 +1,117 @@
+Codecademy
+Learn CSS
+Setup and Selectors
+CSS 既非標準程式語言，也不是標記語言, 而是一種風格頁面語言（style sheet language）：它能讓你在 HTML 文件中的元素（element）上套用不同的頁面樣式（style）。
+直接在HTML改進element的方法叫做inline style
+
+如何使用CSS？
+<link href="styles/style.css" rel="stylesheet" type="text/css">
+
+元素的class都可以改
+<p class="my-class"> 與 <a class="my-class">
+而且css 可以用p.my-class分開控制！
+就像
+.green {
+  color: green;
+}
+<h1 class="green bold"> ... </h1> 就可以同時設一堆
+
+另外，每個元素也可以設自己的ID
+#article-title {
+  text-transform: capitalize;
+}
+覆蓋順位: ID > class > tag
+
+.description h5 {
+  color: teal;
+}
+像這樣 就會覆蓋掉h5的description的顏色
+
+還可以兩種合併改
+h5,
+p {
+  font-family: Georgia;
+}
+
+Visual Rules
+CSS declarations consist of a property and a value.
+Property — the property you' d like to style of that element (i.e., size, color, etc.).
+Value — the value of the property (i.e., 18px for size, blue for color, etc.).
+可以改的: font-family; font-size; font-weight; text-align; color; background-color; opacity; background-image
+
+The Box Model
+由裡到外: content, padding, border, margin
+p {
+  //改border樣式
+  border: 3px solid coral;
+  border-radius: 15px; //也可以是圓角
+  //改padding樣式
+  padding: 40px 0px; //以 上右下左 順時針順序設定
+  //margin一樣
+  margin: 40px 0px; 
+  //有趣的是 兩個物件左右margin都要算 
+    但上下margin取大的就好(margin collapse)
+  margin: 0 auto; //置中
+  //滿出來的話?
+  overflow: hidden看不到, scroll變滾輪, visible看得到
+  visibility: hidden;
+}
+
+Change the Box Model
+h1 {
+  border: 1px solid black;
+  height: 200px;
+  width: 300px;
+  padding: 10px;
+}
+其實像上面這樣 真正的寬度會是322
+* {
+  box-sizing: border-box;  
+}
+這樣就可以自動調配
+
+CSS Display and Positioning
+位置: static預設, relative相對移動, absolute絕對位置 ,fixed畫面位置
+z-index: 順位
+display: inline-block
+float: left clear: left
+
+Color
+名稱 六碼 rgb hsl 透明度
+
+Topography
+font-family, font-weight (bold), font-style (italic), line-height, Fallback, Google Fonts (<link> tag or the @font-face), Local fonts, word-spacing, letter-spacing, text-align 
+
+CSS Grid Essential
+.grid {
+  display: grid;
+  grid-template-columns: 100px 50% 200px;
+  grid-template-rows: 40% 50% 50px;
+  變成一行
+  grid-template: 40% 50% 50px/ 100px 50% 200px;
+  fr可以切等分 很好用!
+  不想一個一個打 可以用repeat()
+  grid-template: repeat(3, 1fr) / 3fr 50% 1fr;
+  格子之間的間隔
+  grid-gap: 10px 15px;
+}
+控制單一class的grid的佔用格數
+.a {
+  grid-row: 5 / span 2;
+  grid-column: 1 / span 2;
+  grid-area其實就可以打完全部的
+  grid-area: grid-row-start / grid-column-start / grid-row-end / and grid-column-end
+}
+
+Advanced CSS Grid
+grid-template-areas 定義每一格的class名稱
+grid layouts are two-dimensional: they have a row, or inline, axis and a column, or block, axis.
+justify-items 個別elements在row上如何表現
+justify-content 一群elements在row上如何表現
+justify-self 單獨一個element在row上如何表現
+align-items 個別elements在column上如何表現
+align-content 一群elements在column上如何表現
+align-self 單獨一個element在column上如何表現
+grid-auto-rows specifies the height of rows added implicitly to the grid
+grid-auto-columns specifies the width of columns added implicitly to the grid
+grid-auto-flow 可以讓elements的順序由橫或豎排列
