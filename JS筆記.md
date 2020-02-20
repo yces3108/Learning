@@ -75,3 +75,67 @@ block是一個用大括號{}包成的區塊
     console.log(newSum)
 .some()是確認至少有一個符合條件的東西  
 .every()是確認全都符合條件  
+## Object
+this指涉calling object本身  
+物件的private屬性用底線(object._attribute)，不過這只是大家的慣例  
+getter就是在物件內部傳值的  
+setter則是變更物件內部的值  
+
+    const robot = {
+      _model: '1E78V2',
+      _energyLevel: 100,
+      _numOfSensors: 15,
+      get numOfSensors(){
+        if(typeof this._numOfSensors === 'number'){
+          return this._numOfSensors;
+        } else {
+          return 'Sensors are currently down.'
+        }
+      },
+      set numOfSensors(num) {
+        if (typeof num === 'number' && num >= 0) {
+          this._numOfSensors = num;
+        } else {
+          console.log('Pass in a number that is greater than or equal to 0');
+        }
+    }
+    };
+呼叫setter
+
+    robot.numOfSensors = 100;
+呼叫getter
+
+    console.log(robot.numOfSensors);
+Factory
+
+    function robotFactory(model, mobile){
+      return {
+        model,
+        mobile,
+        beep() {
+          console.log('Beep Boop');
+        }
+      }
+    }
+    // To check that the property value shorthand technique worked:
+    const newRobot = robotFactory('P-501', false)
+Destructured Assignment: 直接把物件的值拿出來用
+
+    const robot = {
+      model: '1E78V2',
+      energyLevel: 100,
+      functionality: {
+        beep() {
+          console.log('Beep Boop');
+        },
+        fireLaser() {
+          console.log('Pew Pew');
+        },
+      }
+    };
+    const {functionality} = robot;
+    functionality.beep();
+## Classes
+extends用來繼承父類別class.
+super()呼叫父類別的constructor()
+Static method可以直接從class叫,不用再生成它的instance
