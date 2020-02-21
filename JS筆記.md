@@ -139,3 +139,18 @@ Destructured Assignment: 直接把物件的值拿出來用
 extends用來繼承父類別class.
 super()呼叫父類別的constructor()
 Static method可以直接從class叫,不用再生成它的instance
+## Broswer compatibility and transpilation
+caniuse.com — A website that provides data on web browser compatibility for HTML, CSS, and JavaScript features. You will learn how to use it to look up ES6 feature support.  
+Babel — A Javascript library that you can use to convert new, unsupported JavaScript (ES6), into an older version (ES5) that is recognized by most modern browsers.  
+https://medium.com/@cheling/javascript-%E7%80%8F%E8%A6%BD%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C%E8%BD%89%E6%8F%9B-110f49ef0c4
+## Intermediate javascript modules
+要export的話就像這樣
+
+    export default Airplane;
+    module.exports = Airplane; (Node.js不支援)
+要import的話就像這樣(需要對面先export才能對接)  
+
+    const Airplane = require('./2-airplane.js');
+export有分一般的(export)或是export default
+## Promise
+Pending, resolve, and reject  
