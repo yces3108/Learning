@@ -21,5 +21,7 @@ https://ithelp.ithome.com.tw/articles/10203758
 ## 理論知識
 ### 計概
 ### 計網概
+網路技術  
+https://sls.weco.net/CollectiveNote20/Network  
 NTHUOCW 黃能富教授 - 計算機網路概論  
 https://www.youtube.com/playlist?list=PL9jciz8qz_zxeXaMgy4Z77P7dKNRWegE0
