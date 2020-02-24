@@ -259,8 +259,8 @@ async await是ES8裡promise的語法糖
 One of JavaScript’s greatest assets is its non-blocking properties, or that it is an asynchronous language.  
 用event loop來應對非同步的呼叫  
 Asynchronous JavaScript and XML (AJAX)  
-XMLHttpRequest (XHR) API
-JSON: JavaScript Object Notation
+XMLHttpRequest (XHR) API  
+JSON: JavaScript Object Notation  
 GET樣板:
 
     const xhr = new XMLHttpRequest(); 
@@ -289,5 +289,5 @@ POST樣板:
     }
     xhr.open('POST', url);
     xhr.send(data);
-要在URL後面加query的話，在最後面加?
-若query有很多參數，用&區隔，然後對每個key-value pair用=對應
+要在URL後面加query的話，在最後面加?  
+若query有很多參數，用&區隔，然後對每個key-value pair用=對應  
