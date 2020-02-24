@@ -1,6 +1,8 @@
 # 要學的東西還很多呢！
 2019 年成為 Web 開發人員的路線圖  
-https://github.com/goodjack/developer-roadmap-chinese
+https://github.com/goodjack/developer-roadmap-chinese  
+建立一個專業級線上行事曆  
+https://fgchen.com/wp/courses/%e4%ba%92%e5%8b%95%e5%bc%8f%e7%b6%b2%e7%ab%99%e7%a8%8b%e5%bc%8f%e8%a8%ad%e8%a8%88/lessons/%e5%bb%ba%e7%ab%8b%e4%b8%80%e5%80%8b%e5%b0%88%e6%a5%ad%e7%b4%9a%e7%b7%9a%e4%b8%8a%e8%a1%8c%e4%ba%8b%e6%9b%86/
 ## 實戰技能
 ### HTML
 ### CSS
