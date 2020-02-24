@@ -291,3 +291,32 @@ POST樣板:
     xhr.send(data);
 要在URL後面加query的話，在最後面加?  
 若query有很多參數，用&區隔，然後對每個key-value pair用=對應  
+
+GET, POST如果寫成fetch()會方便很多(ES6, ES7)
+
+    fetch('https://api-to-call.com/endpoint')
+      .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Request failed!');
+    }, networkError => {
+      console.log(networkError.message);
+    }).then(jsonResponse => {
+      return jsonResponse;
+    });
+
+而且還可以寫成async await(ES8)
+
+    const getData = async () => {
+      try {
+        const response = await fetch('https://api-to-call.com/endpoint');
+        if (response.ok) {
+          const jsonResponse = await response.json();
+          return jsonResponse;
+        }
+        throw new Error('Request failed!');
+      } catch (error) {
+        console.log(error);
+      }
+    }
