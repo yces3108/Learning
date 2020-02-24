@@ -154,3 +154,140 @@ https://medium.com/@cheling/javascript-%E7%80%8F%E8%A6%BD%E5%99%A8%E5%85%BC%E5%A
 export有分一般的(export)或是export default
 ## Promise
 Pending, resolve, and reject  
+Promise有點像是機會命運，選了機會會怎樣，選了命運會怎樣  
+Pending指的是它的等待狀態  
+有做到要求就是resolve，沒做到就是reject  
+
+    const myExecutor = (resolve, reject) => {
+        if (inventory.sunglasses > 0) {
+            resolve('Sunglasses order processed.');
+        } else {
+            reject('That item is sold out.');
+        }
+    }
+    const orderSunglasses = () => {
+      return new Promise(myExecutor);
+    }
+    const orderPromise = orderSunglasses();
+當你先設定完之後  
+
+    const checkInventory = (order) => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                let inStock = order.every(item => inventory[item[0]] >= item[1]);
+                if (inStock) {
+                    resolve(`Thank you. Your order was successful.`);
+                } else {
+                    reject(`We're sorry. Your order could not be completed because some items are sold out.`);
+                }
+            }, 1000);
+        })
+    };
+你就可以用.then()來讓它等待callback function  
+.catch()其實一樣，只是它只抓失敗的
+
+    const handleSuccess = (parameter) => {
+      console.log(parameter);
+    }
+    const handleFailure = (parameter) => {
+      console.log(parameter);  
+    }
+    checkInventory(order).then(handleSuccess, handleFailure);
+一堆promise是可以串在一起的  
+
+    checkInventory(order)
+    .then((resolvedValueArray) => {
+      // Write the correct return statement here:
+     return processPayment(resolvedValueArray);
+    })
+    .then((resolvedValueArray) => {
+      // Write the correct return statement here:
+      return shipOrder(resolvedValueArray)
+    })
+    .then((successMessage) => {
+      console.log(successMessage);
+    })
+    .catch((errorMessage) => {
+      console.log(errorMessage);
+    });
+Promise.all()裡面可以放一個array的promise一並解決
+## Async await
+async await是ES8裡promise的語法糖
+
+    //第一種打法
+    async function myFunc() {
+      // Function body here
+    };
+    //第二種打法
+    const myFunc = async () => {
+      // Function body here
+    };
+原本的
+
+    function withConstructor(num){
+      return new Promise((resolve, reject) => {
+        if (num === 0){
+          resolve('zero');
+        } else {
+          resolve('not zero');
+        }
+      })
+    }    
+可以簡化成這樣
+
+    async function withAsync(num) {
+      if (num === 0){
+          return('zero');
+        } else {
+          return('not zero');
+        }
+    }
+然後用await可以直接等到resolution過來
+
+    // Native promise version:
+    function nativePromiseDinner() {
+      brainstormDinner().then((meal) => {
+          console.log(`I'm going to make ${meal} for dinner.`);
+      })
+    }
+    // async/await version:
+    async function announceDinner() {
+      let meal = await brainstormDinner();
+      console.log(`I'm going to make ${meal} for dinner.`);
+    }
+## Request
+One of JavaScript’s greatest assets is its non-blocking properties, or that it is an asynchronous language.  
+用event loop來應對非同步的呼叫  
+Asynchronous JavaScript and XML (AJAX)  
+XMLHttpRequest (XHR) API
+JSON: JavaScript Object Notation
+GET樣板:
+
+    const xhr = new XMLHttpRequest(); 
+    const url = 'https://api-to-call.com/endpoint';
+    xhr.responseType = 'json';
+
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        return xhr.response;
+      }
+    }
+
+    xhr.open('GET', url);
+    xhr.send();
+
+POST樣板:
+
+    const xhr = new XMLHttpRequest();
+    const url = 'https://api-to-call.com/endpoint';
+    const data = JSON.stringify({id: '200'});
+    xhr.responseType = 'json';
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        return xhr.response;
+      }
+    }
+    xhr.open('POST', url);
+    xhr.send(data);
+要在URL後面加query的話，在最後面加?
+若query有很多參數，用&區隔，然後對每個key-value pair用=對應
