@@ -4,16 +4,24 @@ https://github.com/goodjack/developer-roadmap-chinese
 建立一個專業級線上行事曆  
 https://fgchen.com/wp/courses/%e4%ba%92%e5%8b%95%e5%bc%8f%e7%b6%b2%e7%ab%99%e7%a8%8b%e5%bc%8f%e8%a8%ad%e8%a8%88/lessons/%e5%bb%ba%e7%ab%8b%e4%b8%80%e5%80%8b%e5%b0%88%e6%a5%ad%e7%b4%9a%e7%b7%9a%e4%b8%8a%e8%a1%8c%e4%ba%8b%e6%9b%86/
 ## 實戰技能
-### HTML
-### CSS
+### 網頁基礎
+#### HTML
+#### CSS
 CSS 語法教學  
 https://www.1keydata.com/css-tutorial/tw/  
 學習CSS 版面配置  
 https://zh-tw.learnlayout.com/
-### JavaScript
-### SQL
-### PHP
-### Git
+#### JavaScript
+### 前端
+#### jQuery
+#### Angular
+### 後端
+#### SQL
+#### PHP
+#### Django
+From Django 1.11 to Django 2.1  
+https://ithelp.ithome.com.tw/articles/10199515?sc=iThomeR
+#### Git
 30 天精通 Git 版本控管  
 https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/README.md  
 [Git]GitKraken 強大的剛剛好的Git GUI神器(1)基本篇  
