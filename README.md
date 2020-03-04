@@ -15,12 +15,16 @@ https://zh-tw.learnlayout.com/
 ### 前端
 #### jQuery
 #### Angular
+Angular 深入淺出三十天  
+https://ithelp.ithome.com.tw/articles/10202427
 ### 後端
 #### SQL
 #### PHP
 #### Django
 From Django 1.11 to Django 2.1  
-https://ithelp.ithome.com.tw/articles/10199515?sc=iThomeR
+https://ithelp.ithome.com.tw/articles/10199515?sc=iThomeR  
+Django Tutorial  
+https://daikeren.github.io/django_tutorial/
 #### Git
 30 天精通 Git 版本控管  
 https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/README.md  
@@ -32,6 +36,9 @@ https://wellwind.idv.tw/blog/2018/04/03/git-using-gitkraken-1-basic/
 https://markdown.tw/  
 Markdown - 易編易讀，優雅的寫文吧！  
 https://ithelp.ithome.com.tw/articles/10203758
+### 設計模式
+圖說設計模式  
+https://design-patterns.readthedocs.io/zh_CN/latest/
 ## 理論知識
 ### 計概
 ### 計網概
