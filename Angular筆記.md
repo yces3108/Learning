@@ -53,3 +53,94 @@ src/app/app.component.ts是放介面的
 還會幫忙改module.ts 
 
     ng g component todo-list
+動作完成才算數哦
+在app.module.ts將TodoListModule放進來import, imports  
+然後在TodoListModule的將TodoListComponent也放去exports  
+想要做什麼就在Component.ts裡面的export做  
+這樣可以建立class，那個--type是用來加後綴的  
+
+    ng generate class todo-list/todo --type model
+## Service
+Component 只負責處理畫面、資料綁定，而 Service 則負責像是取得資料、表單驗證等等的邏輯處理  
+DI （Dependency Injection，依賴注入）是 IoC （Inversion of Control，控制反轉）的一種，用來減低程式碼之間的耦合度  
+Service 的裝飾器：@Injectable  
+把服務的內容餵給需要的component  
+Service 會因註冊在不同的 Provider 中，而有著不一樣的實體
+三種註冊法，首先註冊在自己的裝飾器  
+
+    @Injectable({
+      providedIn: 'root'
+    })
+第二種是在某個module  
+
+    @NgModule({
+      providers: [
+        BackendService,
+        Logger
+      ],
+      ...
+    })
+第三種是在某個component
+
+    @Component({
+      selector:    'app-hero-list',
+      templateUrl: './hero-list.component.html',
+      providers:  [ HeroService ]
+    })
+## Routing
+Routing讓SPA也可以用很多網頁  
+這樣打就對了  
+
+    ng new HelloAngularRouting --routing
+它會製造出一個AppRoutingModule  
+app.module.ts也把AppRoutingModule給import了進去
+可以發現app.component.html最下面多了一個
+
+    <router-outlet></router-outlet>
+然後用 CLI 建立兩個 Component：
+
+    ng generate component home
+    ng generate component about
+然後在app-routing.module.ts把下面的東西import進去
+
+    import { AboutComponent } from './about/about.component';
+    import { HomeComponent } from './home/home.component';
+再把裡面的routes改成這樣
+
+    const routes: Routes = [
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'about',
+        component: AboutComponent
+      }
+    ];
+意思是，當有人要瀏覽 localhost:4200/home 這個網址的時候，我們想讓他看到的是 HomeComponent ；當有人要瀏覽 localhost:4200/about 這個網址的時候，我們想讓他看到的是 AboutComponent
+另外，因為讓子網頁後面有前綴/#/比較好，所以把下面module改一下
+
+    @NgModule({
+      imports: [RouterModule.forRoot(routes, {
+        enableTracing: true, // 在控制台自動追蹤
+        useHash: true // 自動加井字號
+      })],
+      exports: [RouterModule]
+    })
+這個的意思是，就算沒有輸入，也直接給我首頁的那個component
+
+    { 
+      path: '',
+      component: HomeComponent
+    }
+接著就可以把兩個route放進html裡了
+    
+    <ul>
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/about">About</a></li>
+    </ul>
+    
+    
+
+
+
