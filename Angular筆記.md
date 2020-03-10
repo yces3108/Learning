@@ -5,6 +5,14 @@ src/app/app.component.ts是放介面的
     }
 放任何想呈現在app.component.html的東西  
 還可以把函式寫在裡面！  
+## Template語法
+for-loop
+
+    *ngFor 
+### 資料綁定用{{ }}
+雙向綁定，其主要是透過 Angular 裡的一個叫做 Template-Driven Form 的方式來達成雙向綁定的效果。  
+使用方式是在 HTML 元素上加上 [(ngModel)]="property" 即可從 Component 將資料綁定進去，且在使用者有修改其值時，即時將資料設定回去。  
+要使用 [(ngModel)] 這個雙向綁定的 Directive 的話，必須要引入 Angular 的 FormsModule 才能正常使用。
 ## Angular CLI 常用指令
 ### ng new
 --style 改成CSS之外的 SASS、SCSS 或 Less  
