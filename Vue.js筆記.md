@@ -236,6 +236,7 @@ https://ithelp.ithome.com.tw/articles/10205764
 <img src="https://d1dwq032kyr03c.cloudfront.net/upload/images/20181029/201077897h3nQ3gUqy.png" width=300px>  
 建立實體時會將選項物件中定義資料屬性都設上 getter 及 setter ，並將每個資料的初始值丟給渲染函數去建立Virtual DOM Tree。
 建立實體後才加入的屬性因為沒有被給予 getter 及 setter ，所以不會被響應系統察覺。
+
 ## 事件處理 
 使用 JavaScript 陳述式: 這樣的設定方式適合簡單的事件處理。  
 使用方法名稱: 在選項物件中設定 methods 屬性，可以叫用對應的方法，而傳入的第一個參數為原生的 DOM 事件物件。  
@@ -250,9 +251,99 @@ https://ithelp.ithome.com.tw/articles/10205764
 <code>.once</code> : 此事件只觸發一次。  
 <code>.passive</code> : 無視 prevent 功能。  
 ## 表單綁定
-<code>v-bind</code>及 <code>{{}}</code>綁定資料至模板上都是從view model到view的單向綁定
+<code>v-bind</code>及 <code>{{}}</code>綁定資料至模板上都是從view model到view的單向綁定。
+模板上如果有 input 或是 textarea 等的輸入欄位時，會需要將在 view 上更新的資料傳回至 view model 上，這時就需要使用 v-model 這個雙向綁定的屬性。
 ### 單行字串
     <button @click="msg=''">Clear</button>
     <input placeholder="Edit" v-model="msg"> {{msg}}
+### 多行字串
+    <textarea placeholder="Edit" v-model="msgarea"></textarea>
+    <p style="white-space: pre-line">{{msgarea}}</p>/
+### 下拉式選單
+    <div>
+      <div>What are you select? {{selected}}</div>
+      <select v-model="selected">
+        <option disabled value="">Please select one</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </select>
+      <br/>
+    </div>
+### 修飾符
+<code>.lazy</code>: 更新的時間點會被延到<code>change</code>事件時。  
+<code>.number</code>: 讓此輸入框的類型維持在數字。
+<code>.trim</code>: 會trim使用者輸入的字串。
+## 組件(Component)
+根節點是生成<code>new Vue</code>的實體。  
+底下組件的建立是使用<code>Vue.component</code>註冊。  
+只有<code>new Vue</code>可以使用<code>el</code>屬性定義掛載目標(因為它是根節點)。  
+所以組件需要使用<code>template</code>或是<code>render</code>函數設定目標模板，如下：  
+
+    Vue.component('button-counter', {
+      data: function() {
+        return {
+          count: 0
+        }
+      },
+      template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    })
+在模板則是這樣使用：
+
+    <div id="app">
+      <button-counter></button-counter>
+    </div>
+### <code>data</code>屬性
+由於組件可能會有復用的情形，因此每個資料屬性必須要擁有獨立的實體，所以在組件中的<code>data</code>屬性需要使用函數來回傳一個全新的物件。
+### <code>is</code>屬性
+#### 動態載入組件
+如果此組件會在程式執行時改變，那就不能直接設定在模板上，可以使用<code>is</code>取得組件，Vue.js會依照這個組件去渲染DOM元素，如下例所示:
+
+    <div id="app3">
+      <button @click="dynamicComponent='hello'">Hello</button>
+      <button @click="dynamicComponent='bye'">Bye</button>
+      <button @click="dynamicComponent={template: `<p style='color: purple'>Good</p>`}">Good</button>
+      <component :is="dynamicComponent"></component>
+    </div>
+#### HTML 元素配置限制
+
+在像是 <ul> 、<ol> 、 <table> 及 <select> 標籤下會有限制使用的元素，例如 <table> 下層就一定要使用 <tr> ，可是當你使用組件設定這些下層元素時，會如下面這樣設定:
+
+    <table id="app2">
+      <my-row></my-row>
+    </table>
+
+這時 會因為是錯誤的標籤而被抬升，<code><my-row></code>被抬到<code><table></code>外面了，  
+為了防止這樣的問題，我們可以用 is 屬性在 <tr> 標籤上設定想要使用的組件，這樣就不會被判定為錯誤的標籤了:
+    <table id="app2">
+      <tr is="my-row"></tr>
+    </table>
+
+#### 組件內容
+如果想要設定組件內容的話，可以使用 <slot> 標籤來決定組件內容的配置:
+    
+    Vue.component('button-counter', {
+      data: function() {
+        return {
+          count: 0
+        }
+      },
+      template: `
+        <div>
+          <p>{{count}}</p>
+          <button v-on:click="count++">
+            <slot>
+              Click
+            </slot>
+          </button>
+        </div>
+      `
+    });
+我們將原本的按鈕內容中加上<code><slot></code>標籤，當我們要客製按鈕上的字串時，只要像下面這樣:
+
+    <div id="app4">
+      <button-counter>Hello Click Button</button-counter>
+    </div>
+
 
 
