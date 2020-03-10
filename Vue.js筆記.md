@@ -243,12 +243,12 @@ https://ithelp.ithome.com.tw/articles/10205764
 使用物件定義: 物件可以設定多個方法，但限制是只能使用方法名稱設置，並且不能使用修飾符。  
 只使用事件修飾符: 只執行事件修飾符中設定的代碼。  
 ### 事件修飾符
-<code>.stop</code> : 停止觸發上層 DOM 元素事件。
-<code>.prevent</code> : 避免瀏覽器預設行為。
-<code>.capture</code> : 不管觸發事件的目標是否是下層， 設定 capture 的事件一定會先觸發。
-<code>.self</code> : 只有觸發此 DOM 元素本身才會觸發 self 事件。
-<code>.once</code> : 此事件只觸發一次。
-<code>.passive</code> : 無視 prevent 功能。
+<code>.stop</code> : 停止觸發上層 DOM 元素事件。  
+<code>.prevent</code> : 避免瀏覽器預設行為。  
+<code>.capture</code> : 不管觸發事件的目標是否是下層， 設定 capture 的事件一定會先觸發。  
+<code>.self</code> : 只有觸發此 DOM 元素本身才會觸發 self 事件。  
+<code>.once</code> : 此事件只觸發一次。  
+<code>.passive</code> : 無視 prevent 功能。  
 ## 表單綁定
 <code>v-bind</code>及 <code>{{}}</code>綁定資料至模板上都是從view model到view的單向綁定
 ### 單行字串
