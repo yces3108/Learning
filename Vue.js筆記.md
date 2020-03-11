@@ -1,3 +1,5 @@
+## Vue cli指令入門
+https://cli.vuejs.org/zh/guide/installation.html
 ## 概念
 View : 透過 HTML 及模板語法渲染出來的畫面。  
 View Model : 使用 Vue.js 所建立起來的實體。  
@@ -252,7 +254,7 @@ https://ithelp.ithome.com.tw/articles/10205764
 <code>.passive</code> : 無視 prevent 功能。  
 ## 表單綁定
 <code>v-bind</code>及 <code>{{}}</code>綁定資料至模板上都是從view model到view的單向綁定。
-模板上如果有 input 或是 textarea 等的輸入欄位時，會需要將在 view 上更新的資料傳回至 view model 上，這時就需要使用 v-model 這個雙向綁定的屬性。
+模板上如果有 input 或是 textarea 等的輸入欄位時，會需要將在 view 上更新的資料傳回至 view model 上，這時就需要使用<code>v-model</code>這個雙向綁定的屬性。
 ### 單行字串
     <button @click="msg=''">Clear</button>
     <input placeholder="Edit" v-model="msg"> {{msg}}
@@ -307,20 +309,20 @@ https://ithelp.ithome.com.tw/articles/10205764
     </div>
 #### HTML 元素配置限制
 
-在像是 <ul> 、<ol> 、 <table> 及 <select> 標籤下會有限制使用的元素，例如 <table> 下層就一定要使用 <tr> ，可是當你使用組件設定這些下層元素時，會如下面這樣設定:
+在像是ul、ol、table及select標籤下會有限制使用的元素，例如table下層就一定要使用tr，可是當你使用組件設定這些下層元素時，會如下面這樣設定:
 
     <table id="app2">
       <my-row></my-row>
     </table>
 
-這時 會因為是錯誤的標籤而被抬升，<code><my-row></code>被抬到<code><table></code>外面了，  
-為了防止這樣的問題，我們可以用 is 屬性在 <tr> 標籤上設定想要使用的組件，這樣就不會被判定為錯誤的標籤了:
+這時會因為是錯誤的標籤而被抬升，<code>my-row</code>被抬到<code>table</code>外面了，  
+為了防止這樣的問題，我們可以用<code>is</code>屬性在tr標籤上設定想要使用的組件，這樣就不會被判定為錯誤的標籤了:
     <table id="app2">
       <tr is="my-row"></tr>
     </table>
 
 #### 組件內容
-如果想要設定組件內容的話，可以使用 <slot> 標籤來決定組件內容的配置:
+如果想要設定組件內容的話，可以使用slot標籤來決定組件內容的配置:
     
     Vue.component('button-counter', {
       data: function() {
@@ -339,11 +341,267 @@ https://ithelp.ithome.com.tw/articles/10205764
         </div>
       `
     });
-我們將原本的按鈕內容中加上<code><slot></code>標籤，當我們要客製按鈕上的字串時，只要像下面這樣:
+我們將原本的按鈕內容中加上<code>slot</code>標籤，當我們要客製按鈕上的字串時，只要像下面這樣:
 
     <div id="app4">
       <button-counter>Hello Click Button</button-counter>
     </div>
+## 組件間的資料傳輸 
+子組件只要在<code>props</code>屬性加上需要由父組件傳入的參數定義，父組件就可以在配置子組件的時候給予子組件所需的參數屬性，而如果子組件因為變動需要通知父組件，就可以使用<code>$emit</code>通知父組件，而父組件只要設定相關事件的處理函數就可以接收到子組件的資料。
+### 父組件使用屬性傳資料給子組件
+在子組件使用<code>props</code>屬性註冊客製屬性，由父組件設定在子組件的屬性會變為實體中的屬性
 
+    Vue.component('button-counter', {
+      template: `
+        <button @click="count+=1">
+          {{buttonName}} {{count}} times
+        </button>
+      `,
+      props: ['buttonName'],
+      data: function() {
+        return {
+          count: 0,
+        };
+      },
+    });
+在<code>props</code>中設定<code>buttonName</code>，表示<code>buttonName</code>是一個客製屬性，會由父組件在設定模板時給予它的值。
+接著設定父組件:  
 
+    <div id="app">
+      <button-counter button-name="Click me"></button-counter>
+    </div>
 
+    var vm = new Vue({
+      el: '#app',
+    });
+### 使用<code>$emit</code>反應子組件中的變化
+當事件或是監聽器觸發時，子組件可以用<code>$emit</code>方法將變化反應給父組件知道。
+
+    Vue.component('button-counter', {
+      template: `
+        <button @click="clickPlus">
+          {{buttonName}} {{count}} times
+        </button>
+      `,
+      props: ['buttonName'],
+      data: function() {
+        return {
+          count: 0,
+        };
+      },
+    methods: {
+      clickPlus: function() {
+        this.count += 1;
+        this.$emit('click-plus', this.count);
+      }
+    }
+    });
+接著只要在父組件中的<code>button-counter</code>中設定<code>click-plus</code>事件的綁定就可以監看此事件:
+接著在父組件中使用<code>$event</code>當作傳回的資料做處理:
+
+<button-counter button-name="Click me" @click-plus="count=$event"></button-counter>
+## 組件註冊
+### 全域註冊
+在註冊全域組件時要給予兩個參數: 組件名稱及選項物件:
+
+    Vue.component('component-a', {
+      // options
+      template: `
+        <div>a</div>
+      `
+    });
+這樣一來我們就可以之後的任何實體中使用這個組件，
+不只是<code>new Vue</code>實體可以使用，連其他組件也可以使用:
+### 區域註冊
+全域註冊會將原本不需要的組件也載入進來，拖慢載入的時間。
+所以針對某些特定實體設計的組件就可以用區域註冊的方式，註冊在需要它的組件中。
+區域註冊會是一個選項物件:
+
+    const componentC = {
+      // options
+      template: `
+        <div>c</div>
+      `
+    };
+這個物件可以由<code>components</code>這個選項物件屬性載入實體內:
+
+var vm = new Vue({
+  el: '#app',
+  components: {
+    'component-c': componentC
+  }
+});
+除了 new Vue 實體外，也可以在其他組件中使用！
+
+    Vue.component('component-d', {
+      components: {
+        'component-c': componentC
+      },
+      template: `
+        <component-c></component-c>
+      `
+    });
+## <code>prop</code>屬性
+props 屬性的命名及各種不同類型的設定方式。  
+https://ithelp.ithome.com.tw/articles/10208500
+## 屬性驗證 
+props 最簡單的宣告方式就是使用陣列宣告：  
+
+    props: ['name', 'age', 'loveCoding', 'habits', 'education']
+但其實也可以用物件定義：  
+
+    props: {
+      name: String,
+      age: Number,
+      loveCoding: Boolean,
+      habits: Array,
+      education: Object
+    },
+甚至可以用陣列定義複數種型別：
+
+    ...
+    props: {
+      ...
+      age: [Number, String],
+      ...
+    },
+    ...
+### 自訂型別
+Vue.js 提供使用者可以用客製建構子檢查型別:
+
+    function Education(university, highSchool) {
+        this.university = university;
+        this.highSchool = highSchool;
+    }
+
+在 props 上直接設定 Education 即可:
+
+    props: {
+      education: Education
+    },
+可以用<code>instanceof</code>來確認兩個型別是否相等。
+### 以物件設定物件屬性
+下面這個例子，<code>props</code>的值是物件，而各屬性的值也是物件：
+
+    props: {
+      age: {
+        type: Number,
+        required: true,
+        default: 0,
+        validator: function (value) {
+          return value >= 0
+        }
+      }
+    }
+當 required 設為 true 的時候，父組件如果沒有傳入屬性值就會跳錯誤訊息。如下例的<code>age</code>:
+
+    props: {
+      age: {
+        required: true,
+      },
+    },
+如果父組件設定的屬性沒有<code>age</code>，就會報錯:
+
+    <component-all :name="name"
+                   :love-coding="loveCoding"
+                   :habits="habits"
+                   :education="education"></component-all>
+                   props: {
+這樣可以設定<code>age</code>屬性的預設值:
+
+    age: {
+        default: 18,
+      },
+    },
+除了直接設值外，<code>default</code>還可以使用函數設置:
+
+    props: {
+      age: {
+        default: function() {
+            return 18;
+        },
+      },
+    },
+## 客製事件
+### 事件命名
+客製的事件不會轉換名字，他會直接用原本的字串對應，因此如下面的子組件模板:
+
+    <button @click="$emit('plusCount', count++)">+</button>
+子組件中觸發<code>plusCount</code>事件，並把 count 加一的結果往上拋，現在看父組件中的設定:
+
+    <counter @plus-count="count=$event"></counter>
+
+父組件在模板上設定的事件名稱是<code>plus-count</code>這樣的kabab-case字串，但因為事件的名稱對應不存在任何的轉換，因此<code>plusCount</code>不會對應到<code>plus-count</code>，所以子組件拋出的<code>plusCount</code>不會觸發<code>plus-count</code>事件。因此最好的方式就是都使用 kabab-case 名稱。如下例：
+
+    <!-- 子組件模板 -->
+    <button @click="$emit('plus-count', count++)">+</button>
+
+    <!-- 父組件模板 -->
+    <counter @plus-count="count=$event"></counter>
+上例才是正確的，所以在事件命名時： 
+<code>$emit</code>的事件名稱使用kabab-case。
+父組件上綁定的事件名稱使用kabab-case。
+### 綁定原生事件
+要綁定原生事件可以用<code>native</code>修飾符，這樣Vue.js會知道這個事件是原生的事件而直接綁定到組件的根元素上，如下例的輸入組件:
+
+    Vue.component('base-input', {
+      template: `
+        <input>
+      `
+    });
+這個組件很簡單，只有一個 <input> 標籤，接著看一下父組件。
+template:
+
+    <base-input @focus.native="onFocus"></base-input>
+script:
+
+    var vm = new Vue({
+      el: '#app',
+      methods: {
+        onFocus(){
+          console.log('focus');
+        }
+      }
+    });
+如此一來<code>focus</code>在輸入框時，<code>Console</code>就會輸出<code>focus</code>
+### <code>.sync</code> 修飾符
+有時屬性也跟 model 一樣會需要做雙向綁定，這時可以用客製事件達成。
+一般來說在 Vue.js 中官方建議使用 update:[屬性名] 的事件叫用父組件更新屬性，如下例所示:
+
+    Vue.component('base-button', {
+      props: ['title'],
+      template: `
+        <button @click="click">{{title}}</button>
+      `,
+      methods: {
+        click() {
+          const newTitle = this.title.split("").reverse().join("");
+          this.$emit('update:title', newTitle);
+        }
+      }
+    });
+父組件如下:
+
+    <base-button :title="title" @update:title="title=$event"></base-button>
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        title: 'I Love Vue.js'
+      },
+    });
+
+這樣我們就可在子組件中更新 title 的字串，點擊按鈕會將名稱反序。  
+Vue.js 為了讓開發者撰寫的代碼較為單純而提供了<code>.sync</code>修飾符，它是一個屬性雙向綁定的語法糖，因此如下的屬性設定:
+
+    <base-button :title.sync="title"></base-button>
+其實就是剛剛的代碼:
+
+    <base-button :title="title" @update:title="title=$event"></base-button>
+<code>.sync</code>修飾符不能使用表達式設定，你只能像是<code>v-model</code>那樣使用屬性名稱做設置。
+## 插槽
+<code>slot</code>的用法。  
+https://ithelp.ithome.com.tw/articles/10209348
+## 動態元件
+和<code>is</code>的用法有關。<code>keep-alive</code>可以解決元件反覆切換卻要被頻繁銷毀的窘境。  
+https://ithelp.ithome.com.tw/articles/10209464
