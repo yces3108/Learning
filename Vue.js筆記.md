@@ -1,3 +1,6 @@
+# 資料來源
+本篇的資訊來源大多來自：  
+https://ithelp.ithome.com.tw/users/20107789/ironman/1710
 ## Vue cli指令入門
 https://cli.vuejs.org/zh/guide/installation.html
 ## 概念
@@ -111,7 +114,7 @@ template:
       <div>length: {{a.toString().length}}</div>
       <div>Math.pow2: {{Math.pow(a, 2)}}</div>
     </div>
-  ## Directives
+## Directives
 <code>v-html</code>會將資料當作 HTML 做渲染  
 使用<code>v-if</code>來決定是否要渲染元素  
 要綁定實例中變數的話，要用<code>v-bind</code>，例如：
@@ -206,7 +209,7 @@ https://ithelp.ithome.com.tw/articles/10204949
 <code>v-if</code>, <code>v-else-if</code>, <code>v-else</code>, and <code>v-show</code>  
 https://ithelp.ithome.com.tw/articles/10205764
 ## 列表渲染
-<code>v-for</code>  
+<code>v-for</code>有個特殊屬性，叫做<code>:key</code>，主要的目的是為了避免迴圈物件被不正確的重用，所以，當你有一組清單需要使用迴圈顯示時，請務必確保指定了唯一的<code>:key</code>，以避免渲染出來的元件不正確的情況。  
 
     var vm = new Vue({
       data: {
@@ -375,6 +378,45 @@ https://ithelp.ithome.com.tw/articles/10205764
     var vm = new Vue({
       el: '#app',
     });
+超級好的懶人包！資料來源：  
+https://jeremysu0131.github.io/Vue-js-%E7%88%B6%E5%AD%90%E7%B5%84%E4%BB%B6%E6%BA%9D%E9%80%9A-emit-on/
+父組件：
+
+    <template>
+      <div id="app">
+        <child v-on:childMethod="parentMethod"></child>
+      </div>
+    </template>
+
+    <script>
+    import Child from './components/Child';
+    export default {
+      name: 'App',
+      components: {
+        Child,
+      },
+      methods: {
+        parentMethod() {
+          console.log('Hello World');
+        },
+      },
+    };
+    </script>
+子組件：
+
+    <template>
+      <button @click="handleClick">Emit</button>
+    </template>
+
+    <script>
+    export default {
+      methods: {
+        handleClick() {
+          this.$emit('childMethod');
+        },
+      },
+    };
+    </script>
 ### 使用<code>$emit</code>反應子組件中的變化
 當事件或是監聽器觸發時，子組件可以用<code>$emit</code>方法將變化反應給父組件知道。
 
