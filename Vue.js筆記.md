@@ -72,6 +72,7 @@ Model : 後端程式中的商業邏輯。
 <code>$watch</code>: 在第一個參數中設定的資料變化時觸發第二個參數的函式，在這個例子中當<code>a</code>發生變化時，會將未修改時的<code>a</code>數值設給<code>b</code>。
 ## 生命週期鉤子
 <img src="https://d1dwq032kyr03c.cloudfront.net/upload/images/20181019/20107789jljtZxzJPJ.png" width=300px>
+
 ## Mustache 標籤
 其實就是雙層大括號<code>{{}}</code>。  
 每次變數值有變動都會re-render。  
