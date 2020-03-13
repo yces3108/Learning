@@ -652,7 +652,7 @@ https://ithelp.ithome.com.tw/articles/10209464
 https://medium.com/@negarjf/how-to-access-a-static-json-file-in-vue-cli-3-8943dc343f95  
 後來是用它示範的解決了（雖然他好像log出錯誤訊息）  
 https://segmentfault.com/q/1010000014220437/a-1020000015768253
-最後我是這樣  
+後來我是這樣  
 
     mounted () {
         this.fetchMsg()
@@ -676,3 +676,29 @@ https://segmentfault.com/q/1010000014220437/a-1020000015768253
             })
         }
     }
+最後的最後，我是這樣用好的，結果已經過了一整個下午......
+
+    import trainingTimeJSON from "../assets/trainingTime.json"
+    //import axios from "axios";
+    export default {
+      name: "ScheduleSection",
+      props: {
+        section: Number,
+        sectionDescription: String
+      },
+      data: function () {
+        return {
+          days: [...Array(7).keys()],
+          trainingTime: JSON
+        };
+      },
+      mounted: function() {
+      },
+      methods: {
+      },
+      created() {
+        this.trainingTime = trainingTimeJSON;
+        console.log(this.trainingTime);
+        console.log(this.trainingTime["1"]);
+      },
+    };
