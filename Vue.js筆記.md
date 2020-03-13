@@ -648,3 +648,5 @@ https://ithelp.ithome.com.tw/articles/10209348
 ## 動態元件
 和<code>is</code>的用法有關。<code>keep-alive</code>可以解決元件反覆切換卻要被頻繁銷毀的窘境。  
 https://ithelp.ithome.com.tw/articles/10209464
+## 引入本地static的JSON
+https://medium.com/@negarjf/how-to-access-a-static-json-file-in-vue-cli-3-8943dc343f95
