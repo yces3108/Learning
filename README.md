@@ -17,6 +17,9 @@ https://zh-tw.learnlayout.com/
 #### Angular
 Angular 深入淺出三十天  
 https://ithelp.ithome.com.tw/articles/10202427
+#### Vue
+勇者鬥Vue龍  
+https://peterhpchen.github.io/VuejsQuest/  
 ### 後端
 #### SQL
 #### PHP
