@@ -28,12 +28,12 @@ From Django 1.11 to Django 2.1
 https://ithelp.ithome.com.tw/articles/10199515?sc=iThomeR  
 Django Tutorial  
 https://daikeren.github.io/django_tutorial/
-#### Git
+## 輔助技能
+### Git
 30 天精通 Git 版本控管  
 https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/README.md  
 [Git]GitKraken 強大的剛剛好的Git GUI神器(1)基本篇  
 https://wellwind.idv.tw/blog/2018/04/03/git-using-gitkraken-1-basic/  
-## 輔助技能
 ### Markdown
 官網的技術文件  
 https://markdown.tw/  
