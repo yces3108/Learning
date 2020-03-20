@@ -20,6 +20,8 @@ https://ithelp.ithome.com.tw/articles/10202427
 #### Vue
 勇者鬥Vue龍  
 https://peterhpchen.github.io/VuejsQuest/  
+Vue CLI 3 安裝與使用教學  
+https://www.footmark.info/programming-language/vuejs/vue-cli3-seting/  
 ### 後端
 #### SQL
 #### PHP
