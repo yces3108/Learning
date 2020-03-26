@@ -24,6 +24,12 @@
 改好app的model之後，一次搞定他的migration，  
 
     python manage.py makemigrations stores
+在settings設定DATABASES密碼的方法在MySQL8.0行不通了！參考這篇：  
+https://stackoverflow.com/questions/50469587/django-db-utils-operationalerror-2059-authentication-plugin-caching-sha2-pas  
+https://www.jianshu.com/p/0ec807f3cd26  
+產生超級使用者在admin頁面使用，
+
+    python manage.py createsuperuser
 
 
 
