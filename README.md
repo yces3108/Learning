@@ -46,6 +46,8 @@ https://ithelp.ithome.com.tw/articles/10203758
 https://design-patterns.readthedocs.io/zh_CN/latest/
 ## 理論知識
 ### 計概
+進階電腦系統理論與實作 成大資工黃敬群  
+http://wiki.csie.ncku.edu.tw/sysprog/schedule
 ### 計網概
 網路技術  
 https://sls.weco.net/CollectiveNote20/Network  
