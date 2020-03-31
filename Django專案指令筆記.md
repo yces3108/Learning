@@ -21,6 +21,9 @@
 建立一個app，
 
     python manage.py startapp stores
+把他跑起來，就可以在http://localhost:8000看到，  
+
+    python manage.py runserver
 改好app的model之後，一次搞定他的migration，  
 
     python manage.py makemigrations stores
