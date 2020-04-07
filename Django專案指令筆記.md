@@ -42,5 +42,7 @@ https://www.jianshu.com/p/0ec807f3cd26
 
     python manage.py createsuperuser
 
-
+## 疑難雜症區
+    django.core.urlresolvers -> django.urls
+    SECRET_KEY setting must not be empty -> 不要忘記開環境啊！
 
