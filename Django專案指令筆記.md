@@ -21,6 +21,14 @@
 建立一個app，
 
     python manage.py startapp stores
+startapp完之後記得加入，  
+
+    # lunch/settings/base.py
+
+    INSTALLED_APPS = (
+        'stores',
+        # ...
+    )
 把他跑起來，就可以在http://localhost:8000看到，  
 
     python manage.py runserver
