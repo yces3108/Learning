@@ -42,7 +42,27 @@ https://www.jianshu.com/p/0ec807f3cd26
 
     python manage.py createsuperuser
 
+部署到Heroku，設完runtime.txt之後，  
+
+    pip freeze > requirements.txt
+然後再改requirements.txt、Procfile、deploy_heroku.py、wsgi.py、.gitignore，  
+接著執行指令，
+
+    git init
+    git add .
+    git commit -m "Make it so"
+登入，
+    
+    heroku login
+建立project，
+
+    heroku create <project_name>
+建立遠端倉庫，
+    
+    git remote add yces3108lunch  https://git.heroku.com/yces3108lunch.git
+
 ## 疑難雜症區
     django.core.urlresolvers -> django.urls
     SECRET_KEY setting must not be empty -> 不要忘記開環境啊！
+    on_delete -> on_delete=models.CASCADE
 
