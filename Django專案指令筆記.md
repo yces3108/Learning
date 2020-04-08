@@ -60,6 +60,11 @@ https://www.jianshu.com/p/0ec807f3cd26
 建立遠端倉庫，
     
     git remote add yces3108lunch  https://git.heroku.com/yces3108lunch.git
+推上雲端，  
+
+    git push heroku master
+這篇文章說，只要你的settings改過位置，那manage.py和wsgi.py都要改一下：  
+https://stackoverflow.com/questions/38752015/django-deploy-improperlyconfigured-the-secret-key-setting-must-not-be-empty
 
 ## 疑難雜症區
     django.core.urlresolvers -> django.urls
