@@ -42,7 +42,9 @@ https://www.jianshu.com/p/0ec807f3cd26
 
     python manage.py createsuperuser
 
-部署到Heroku，設完runtime.txt之後，  
+部署到Heroku，  
+https://devcenter.heroku.com/articles/django-app-configuration  
+設完runtime.txt之後，  
 
     pip freeze > requirements.txt
 然後再改requirements.txt、Procfile、deploy_heroku.py、wsgi.py、.gitignore，  
