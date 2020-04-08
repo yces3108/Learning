@@ -47,9 +47,13 @@ https://design-patterns.readthedocs.io/zh_CN/latest/
 ## 理論知識
 ### 計概
 進階電腦系統理論與實作 成大資工黃敬群  
-http://wiki.csie.ncku.edu.tw/sysprog/schedule
+http://wiki.csie.ncku.edu.tw/sysprog/schedule  
+鳥哥的 Linux 私房菜 - 計算機概論
+https://linux.vbird.org/linux_basic/centos7/0105computers.php  
 ### 計網概
 網路技術  
 https://sls.weco.net/CollectiveNote20/Network  
 NTHUOCW 黃能富教授 - 計算機網路概論  
-https://www.youtube.com/playlist?list=PL9jciz8qz_zxeXaMgy4Z77P7dKNRWegE0
+https://www.youtube.com/playlist?list=PL9jciz8qz_zxeXaMgy4Z77P7dKNRWegE0  
+鳥哥的 Linux 私房菜 - 基礎網路概念
+http://linux.vbird.org/linux_server/0110network_basic.php  
