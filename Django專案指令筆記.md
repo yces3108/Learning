@@ -15,7 +15,7 @@
 用這個指令建立專案，  
 
     django-admin startproject lunch
-在所連結的資料庫當中建立表格，
+在所連結的資料庫當中建立表格django_session，
 
     python manage.py migrate
 建立一個app，
