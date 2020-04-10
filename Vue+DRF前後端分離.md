@@ -67,6 +67,6 @@ Django Rest Framework JWT — ( JSON Web Token Authentication support for Django
 
 
 
-
-
-https://stackoverflow.com/questions/53993265/failed-to-download-repo-vuetifyjs-webpack-response-code-404-not-found
+## 疑難雜症
+### 在axios裡的then的函式被報錯'response' is defined but never used
+https://stackoverflow.com/questions/58466881/how-to-solve-response-is-defined-but-never-used-on-axios-then-callback
