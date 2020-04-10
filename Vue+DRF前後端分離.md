@@ -15,43 +15,54 @@ Django CORS Headers — ( A Django App that adds CORS (Cross-Origin Resource Sha
 Django Filter — ( Django-filter is a reusable Django application allowing users to declaratively add dynamic QuerySet filtering from URL parameters.)  
 Django Rest Framework JWT — ( JSON Web Token Authentication support for Django REST Framework)  
 ## 建立後端
-1. 建立環境
+### 1. 建立環境
 先建立環境，
 
     python -m venv venv
+    
+    
 再進入環境，
 
     venv\Scripts\activate.bat
+    
 此時指令列前面應該有環境名稱。
-2. 建立資料夾
+### 2. 建立資料夾
 
     ex. MyProject
 記得cd進去。
-3. 安裝Django
+### 3. 安裝Django
 
     pip install Django
-4. 建立後端資料夾(Server)
+### 4. 建立後端資料夾(Server)
 
     django-admin startproject server
-5. 安裝一些套件
+### 5. 安裝一些套件
 如果已經有requirements.txt，裡面寫好待安裝的東西的話：
 
     pip install -r requirements.txt
 反過來說，如果已經安裝，但想建立requirements.txt文件的話：
 
     pip freeze > requirements.txt
-6. 建立後端應用
+### 6. 建立後端應用
 
     django-admin startapp movie
+### 7. 運行
+在Server資料夾，
+
+    python manage.py runserver
 ## 建立前端
-1. 建立前端應用(Client)
+### 1. 建立前端應用(Client)
 
     vue create client
     cd client
     vue add vuetify
-2. 安裝一些套件
+### 2. 安裝一些套件
 
     npm install --save axios sweetalert2 vue-session vuex
+### 3. 運行
+在Client資料夾，
+
+    npm run serve
 
 
 
