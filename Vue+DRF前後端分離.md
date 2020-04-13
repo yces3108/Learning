@@ -63,10 +63,26 @@ Django Rest Framework JWT — ( JSON Web Token Authentication support for Django
 在Client資料夾，
 
     npm run serve
+## 初始化
+辨別出必須建立的資料庫，
 
-
+    python manage.py makemigrations
+實際建立/更新，
+    
+    python manage.py migrate
+創建出網頁的超級使用者，可以獲得權限管理介面，
+    
+    python manage.py createsupersuer
+在server/settings.py裡的INSTALLED_APPS聲明後續用到的module，例如(my_app), rest_framework, rest_framework.authtoken和corsheaders。  
+## 帳號管理
+### 權限設定：JWT
+rest_framework_jwt是取得JWT的方式，獲得帳號驗證之後就可以在網站中操作那些受保護的功能。  
+例如我在my_app/views.py的view，就可以設定<code>permissions.IsAuthenticated</code>來保護。  
+使用者若需獲得權限，他必須先登入。在server/urls.py的urlpattern中，我們設定一個path<code>path('auth/', obtain_jwt_token)</code>，將使用者引導至登入頁面，登入後取得token，即可成為已驗證身分的狀態。
 
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
 https://stackoverflow.com/questions/58466881/how-to-solve-response-is-defined-but-never-used-on-axios-then-callback
+
+### 千萬不可以亂動migrations資料夾，亂砍database！
