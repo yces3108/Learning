@@ -78,11 +78,56 @@ Django Rest Framework JWT — ( JSON Web Token Authentication support for Django
 ### 權限設定：JWT
 rest_framework_jwt是取得JWT的方式，獲得帳號驗證之後就可以在網站中操作那些受保護的功能。  
 例如我在my_app/views.py的view，就可以設定<code>permissions.IsAuthenticated</code>來保護。  
-使用者若需獲得權限，他必須先登入。在server/urls.py的urlpattern中，我們設定一個path<code>path('auth/', obtain_jwt_token)</code>，將使用者引導至登入頁面，登入後取得token，即可成為已驗證身分的狀態。
+使用者若需獲得權限，他必須先登入。在server/urls.py的urlpattern中，我們設定一個path<code>path('auth/', obtain_jwt_token)</code>，將使用者引導至登入頁面，登入後取得token，即可成為已驗證身分的狀態。  
+### 登入介面
+前端登入介面的表單，可以用Vuetify的漂亮UI來製作。<code></code>  
+在cluent/Auth.vue裡<code><script></code>的<code>method</code>加入以下方法，驗證身分並請求token，  
+    
+        login() {
+          // checking if the input is valid
+            if (this.$refs.form.validate()) {
+              this.loading = true;
+              axios.post('http://localhost:8000/auth/', this.credentials).then(res => {
+                this.$session.start();
+                this.$session.set('token', res.data.token);
+                router.push('/');
+              }).catch(e => {
+                this.loading = false;
+                swal({
+                  type: 'warning',
+                  title: 'Error',
+                  text: 'Wrong username or password',
+                  showConfirmButton:false,
+                  showCloseButton:false,
+                  timer:3000
+                })
+              })
+            }
+        }
+在那些需要登入才能看的前段頁面，則在<code>mounted</code>時就檢查是否已登入，
 
+      mounted() {
+        this.checkLoggedIn();
+      },
+      methods: {
+        checkLoggedIn() {
+          this.$session.start();
+          console.log(this.$session.get('token'));
+          if (!this.$session.has("token")) {
+            router.push("/auth");
+          }
+        }
+      }
+### Postman桌面程式，RESTful API的測試工具
+將Postman下載下來後，連線到localhost:8000/auth/，在相應欄位輸入自己的帳號密碼，然後對這個頁面POST，就可以看到response給的token。  
+### 建立自己model的CRUD
+在my-app/model.py建立好model，也就是設定好一大堆參數的field之後，設定my-app/serializer.py表示model呈現序列的方式。  
+接著，在my-app/views.py導入<code>rest_framework.generics</code>2k7API views，如此一來就可以進行CRUD。    
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
 https://stackoverflow.com/questions/58466881/how-to-solve-response-is-defined-but-never-used-on-axios-then-callback
 
 ### 千萬不可以亂動migrations資料夾，亂砍database！
+
+###  CSRF（cross-site request forgery）先放在心上
