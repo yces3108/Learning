@@ -123,6 +123,8 @@ rest_framework_jwt是取得JWT的方式，獲得帳號驗證之後就可以在�
 ### 建立自己model的CRUD
 在my-app/model.py建立好model，也就是設定好一大堆參數的field之後，設定my-app/serializer.py表示model呈現序列的方式。  
 接著，在my-app/views.py導入<code>rest_framework.generics</code>2k7API views，如此一來就可以進行CRUD。    
+### 打造註冊登入介面
+https://blog.csdn.net/qq_41802773/article/details/86175468  
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
