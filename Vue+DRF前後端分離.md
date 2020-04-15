@@ -120,6 +120,12 @@ rest_framework_jwt是取得JWT的方式，獲得帳號驗證之後就可以在�
       }
 ### Postman桌面程式，RESTful API的測試工具
 將Postman下載下來後，連線到localhost:8000/auth/，在相應欄位輸入自己的帳號密碼，然後對這個頁面POST，就可以看到response給的token。  
+後續如果要測試，玉到CSRF請求卻沒辦法通過，遇到了下列警示，  
+
+    csrf verification failed. request aborted.
+可以用這篇的解答來解決！  
+https://stackoverflow.com/questions/36125813/csrf-verification-failed-request-aborted-when-i-send-post-request  
+https://blog.csdn.net/daocaoren1543169565/article/details/80937211  
 ### 建立自己model的CRUD
 在my-app/model.py建立好model，也就是設定好一大堆參數的field之後，設定my-app/serializer.py表示model呈現序列的方式。  
 接著，在my-app/views.py導入<code>rest_framework.generics</code>2k7API views，如此一來就可以進行CRUD。    
@@ -131,5 +137,8 @@ https://blog.csdn.net/qq_41802773/article/details/86175468
 https://stackoverflow.com/questions/58466881/how-to-solve-response-is-defined-but-never-used-on-axios-then-callback
 
 ### 千萬不可以亂動migrations資料夾，亂砍database！
+盡量不要刪，這是版本混亂時的下下策！  
+Django笔记05：如何悄悄删除migrations下的文件而不引起任何错误  
+https://zhuanlan.zhihu.com/p/55440044  
 
 ###  CSRF（cross-site request forgery）先放在心上
