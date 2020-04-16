@@ -71,7 +71,9 @@ https://stackoverflow.com/questions/38752015/django-deploy-improperlyconfigured-
 
 ## 疑難雜症區
     django.core.urlresolvers -> django.urls
+    
     SECRET_KEY setting must not be empty -> 不要忘記開環境啊！也可能是下面這個，manage.py的問題，
 https://blog.csdn.net/qq_21583139/article/details/104485102?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-4&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-4
+
     on_delete -> on_delete=models.CASCADE
 
