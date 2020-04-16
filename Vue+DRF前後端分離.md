@@ -121,7 +121,7 @@ https://www.npmjs.com/package/vue-sweetalert2
           }
         }
       }
-### Postman桌面程式，RESTful API的測試工具
+### Postman桌面程式－－RESTful API的測試工具
 將Postman下載下來後，連線到localhost:8000/auth/，在相應欄位輸入自己的帳號密碼，然後對這個頁面POST，就可以看到response給的token。  
 後續如果要測試，玉到CSRF請求卻沒辦法通過，遇到了下列警示，  
 
@@ -135,8 +135,12 @@ https://blog.csdn.net/daocaoren1543169565/article/details/80937211
 ### 打造註冊登入介面
 https://blog.csdn.net/qq_41802773/article/details/86175468  
 ### JWT與Vue的結合
+概念是這樣的，  
+https://blog.csdn.net/sleepwalker_1992/article/details/82974703  
 https://www.pydanny.com/drf-jwt-axios-vue.html  
 https://melvinkoh.me/jwt-authentication-in-vuejs-and-django-rest-framework-part-2-cjye5a3ss001qvvs1fi123163  
+### Vuex－－幫Vue儲存暫存資料的必備工具
+https://dotblogs.com.tw/brian90191/2019/07/28/145625
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
