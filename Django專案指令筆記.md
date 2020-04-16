@@ -42,8 +42,9 @@ https://www.jianshu.com/p/0ec807f3cd26
 
     python manage.py createsuperuser
 
-部署到Heroku，  
+## 部署到Heroku
 https://devcenter.heroku.com/articles/django-app-configuration  
+https://github.com/uranusjr/django-tutorial-for-programmers/blob/1.8/24-deploy-to-heroku.md  
 設完runtime.txt之後，  
 
     pip freeze > requirements.txt
@@ -70,6 +71,7 @@ https://stackoverflow.com/questions/38752015/django-deploy-improperlyconfigured-
 
 ## 疑難雜症區
     django.core.urlresolvers -> django.urls
-    SECRET_KEY setting must not be empty -> 不要忘記開環境啊！
+    SECRET_KEY setting must not be empty -> 不要忘記開環境啊！也可能是下面這個，manage.py的問題，
+https://blog.csdn.net/qq_21583139/article/details/104485102?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-4&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-4
     on_delete -> on_delete=models.CASCADE
 
