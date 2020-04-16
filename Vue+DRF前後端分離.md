@@ -141,6 +141,8 @@ https://www.pydanny.com/drf-jwt-axios-vue.html
 https://melvinkoh.me/jwt-authentication-in-vuejs-and-django-rest-framework-part-2-cjye5a3ss001qvvs1fi123163  
 ### Vuex－－幫Vue儲存暫存資料的必備工具
 https://dotblogs.com.tw/brian90191/2019/07/28/145625
+### 關於authentication token如何放在header的精采討論！
+https://stackoverflow.com/questions/44245588/how-to-send-authorization-header-with-axios  
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
