@@ -76,12 +76,15 @@ Django Rest Framework JWT — ( JSON Web Token Authentication support for Django
 在server/settings.py裡的INSTALLED_APPS聲明後續用到的module，例如(my_app), rest_framework, rest_framework.authtoken和corsheaders。  
 ## 帳號管理
 ### 權限設定：JWT
+https://jpadilla.github.io/django-rest-framework-jwt/  
 rest_framework_jwt是取得JWT的方式，獲得帳號驗證之後就可以在網站中操作那些受保護的功能。  
 例如我在my_app/views.py的view，就可以設定<code>permissions.IsAuthenticated</code>來保護。  
 使用者若需獲得權限，他必須先登入。在server/urls.py的urlpattern中，我們設定一個path<code>path('auth/', obtain_jwt_token)</code>，將使用者引導至登入頁面，登入後取得token，即可成為已驗證身分的狀態。  
 ### 登入介面
 前端登入介面的表單，可以用Vuetify的漂亮UI來製作。<code></code>  
-在cluent/Auth.vue裡<code><script></code>的<code>method</code>加入以下方法，驗證身分並請求token，  
+好看的警示視窗，則可以用SweetAlert2，  
+https://www.npmjs.com/package/vue-sweetalert2  
+在client/Auth.vue裡<code><script></code>的<code>method</code>加入以下方法，驗證身分並請求token，  
     
         login() {
           // checking if the input is valid
@@ -131,6 +134,9 @@ https://blog.csdn.net/daocaoren1543169565/article/details/80937211
 接著，在my-app/views.py導入<code>rest_framework.generics</code>2k7API views，如此一來就可以進行CRUD。    
 ### 打造註冊登入介面
 https://blog.csdn.net/qq_41802773/article/details/86175468  
+### JWT與Vue的結合
+https://www.pydanny.com/drf-jwt-axios-vue.html  
+https://melvinkoh.me/jwt-authentication-in-vuejs-and-django-rest-framework-part-2-cjye5a3ss001qvvs1fi123163  
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
