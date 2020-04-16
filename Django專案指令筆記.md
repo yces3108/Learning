@@ -49,6 +49,9 @@ https://github.com/uranusjr/django-tutorial-for-programmers/blob/1.8/24-deploy-t
 
     pip freeze > requirements.txt
 然後再改requirements.txt、Procfile、deploy_heroku.py、wsgi.py、.gitignore，  
+改完requirement.txt之後安裝裡面提到的所有套件（因為有加），
+
+    pip install -r requirements.txt
 接著執行指令，
 
     git init
