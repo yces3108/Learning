@@ -68,6 +68,8 @@ https://github.com/uranusjr/django-tutorial-for-programmers/blob/1.8/24-deploy-t
     git push heroku master
 這篇文章說，只要你的settings改過位置，那manage.py和wsgi.py都要改一下：  
 https://stackoverflow.com/questions/38752015/django-deploy-improperlyconfigured-the-secret-key-setting-must-not-be-empty
+前端資料夾裡的.gitignore裡面要改一下，多加個/dist，詳細為何等之後來查一查，  
+https://blog.csdn.net/qq_41725450/article/details/103278108
 
 ## 疑難雜症區
     django.core.urlresolvers -> django.urls
