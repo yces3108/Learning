@@ -91,6 +91,7 @@ git上傳heroku時，
 python manage.py collectstatic --noinput時，
 
     django.core.exceptions.SuspiciousFileOperation: The joined path (C:\Users\USER\ntubt\static\img\10_blur.8265f219.jpg) is located outside of the base path component (C:\Users\USER\ntubt\staticfiles)
-試試看：  
-改vue.config.js  
+這篇提供了一招險招。  
+因為django_heroku會強制把STATIC_ROOT換掉，所以在django_heroku後面把STATIC_ROOT換回來。
+https://stackoverflow.com/questions/58368595/django-manage-py-collectstatic-saving-to-the-wrong-folder
 
