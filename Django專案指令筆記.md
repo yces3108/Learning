@@ -83,5 +83,13 @@ https://blog.csdn.net/qq_21583139/article/details/104485102?depth_1-utm_source=d
     on_delete -> on_delete=models.CASCADE
     
 git上傳heroku時，  
+
     FileNotFoundError: [Errno 2] No such file or directory: '/tmp/build_e7a669dcc6571dc3f1232dd54f7f8aee/front/dist'
+目前猜測，可能是我在前端資料夾裡把dist資料夾用.gitignore遮掉了  
+    
+python manage.py collectstatic --noinput時，
+
+    django.core.exceptions.SuspiciousFileOperation: The joined path (C:\Users\USER\ntubt\static\img\10_blur.8265f219.jpg) is located outside of the base path component (C:\Users\USER\ntubt\staticfiles)
+試試看：  
+改vue.config.js  
 
