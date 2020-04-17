@@ -81,4 +81,7 @@ https://blog.csdn.net/qq_41725450/article/details/103278108
 https://blog.csdn.net/qq_21583139/article/details/104485102?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-4&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-4
 
     on_delete -> on_delete=models.CASCADE
+    
+git上傳heroku時，  
+    FileNotFoundError: [Errno 2] No such file or directory: '/tmp/build_e7a669dcc6571dc3f1232dd54f7f8aee/front/dist'
 
