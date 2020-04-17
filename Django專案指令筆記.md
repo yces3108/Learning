@@ -86,6 +86,7 @@ git上傳heroku時，
 
     FileNotFoundError: [Errno 2] No such file or directory: '/tmp/build_e7a669dcc6571dc3f1232dd54f7f8aee/front/dist'
 目前猜測，可能是我在前端資料夾裡把dist資料夾用.gitignore遮掉了  
+後來證實，把遮掉的/dist給取消就好。  
     
 python manage.py collectstatic --noinput時，
 
