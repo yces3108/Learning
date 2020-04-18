@@ -73,6 +73,12 @@ https://github.com/uranusjr/django-tutorial-for-programmers/blob/1.8/24-deploy-t
 https://stackoverflow.com/questions/38752015/django-deploy-improperlyconfigured-the-secret-key-setting-must-not-be-empty
 前端資料夾裡的.gitignore裡面要改一下，多加個/dist，詳細為何等之後來查一查，  
 https://blog.csdn.net/qq_41725450/article/details/103278108
+推上雲端之後，要將資料庫遷移到Heroku的內建資料庫，
+
+    heroku run python manage.py migrate
+移植完之後，當然可以在Heroku資料庫裡面創建超級使用者，
+
+    heroku run python manage.py createsuperuser
 
 ## 疑難雜症區
     django.core.urlresolvers -> django.urls
