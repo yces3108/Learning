@@ -80,6 +80,7 @@ https://jpadilla.github.io/django-rest-framework-jwt/
 rest_framework_jwt是取得JWT的方式，獲得帳號驗證之後就可以在網站中操作那些受保護的功能。  
 例如我在my_app/views.py的view，就可以設定<code>permissions.IsAuthenticated</code>來保護。  
 使用者若需獲得權限，他必須先登入。在server/urls.py的urlpattern中，我們設定一個path<code>path('auth/', obtain_jwt_token)</code>，將使用者引導至登入頁面，登入後取得token，即可成為已驗證身分的狀態。  
+obtain_jwt_token, refresh_jwt_token, verify_jwt_token三個都可以來好好使用！
 ### 登入介面
 前端登入介面的表單，可以用Vuetify的漂亮UI來製作。<code></code>  
 好看的警示視窗，則可以用SweetAlert2，  
