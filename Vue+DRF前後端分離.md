@@ -147,6 +147,8 @@ https://stackoverflow.com/questions/44245588/how-to-send-authorization-header-wi
 ### 取得了prod後端資料庫URL，要讓前端ajax知道要調用的URL是dev的還是prod的
 建立一個Base.vue來專門存取BASE_URL。  
 https://blog.csdn.net/qq_35867245/article/details/88398458?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1
+### 多選項model套件
+https://pypi.org/project/django-multiselectfield/
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
