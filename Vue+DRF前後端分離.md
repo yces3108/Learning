@@ -149,6 +149,9 @@ https://stackoverflow.com/questions/44245588/how-to-send-authorization-header-wi
 https://blog.csdn.net/qq_35867245/article/details/88398458?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1&utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1
 ### 多選項model套件
 https://pypi.org/project/django-multiselectfield/
+### Promise, Async, Await
+https://letswrite.tw/promise-async-await/  
+https://www.cnblogs.com/cckui/p/10444246.html  
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
@@ -160,3 +163,6 @@ Django笔记05：如何悄悄删除migrations下的文件而不引起任何错�
 https://zhuanlan.zhihu.com/p/55440044  
 
 ###  CSRF（cross-site request forgery）先放在心上
+
+### Serializer設定完後要把fields改好
+(1048, "Column 'user_number_id' cannot be null")
