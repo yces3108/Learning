@@ -166,3 +166,6 @@ https://zhuanlan.zhihu.com/p/55440044
 
 ### Serializer設定完後要把fields改好
 (1048, "Column 'user_number_id' cannot be null")
+
+### Property or method "logout" is not defined on the instance but referenced during render.
+結果只是methods打成method......
