@@ -152,6 +152,8 @@ https://pypi.org/project/django-multiselectfield/
 ### Promise, Async, Await
 https://letswrite.tw/promise-async-await/  
 https://www.cnblogs.com/cckui/p/10444246.html  
+### viewSet的query篩選方式
+https://medium.com/@andyludeveloper/%E7%8E%A9-django-part-6-%E6%9F%A5%E8%A9%A2%E8%B3%87%E6%96%99-query-model-af542ed8eb5e
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
