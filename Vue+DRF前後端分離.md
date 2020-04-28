@@ -158,6 +158,7 @@ https://medium.com/@andyludeveloper/%E7%8E%A9-django-part-6-%E6%9F%A5%E8%A9%A2%E
 https://zhuanlan.zhihu.com/p/81764012  
 ### 將local的MySQL資料庫先變成JSON再上傳雲端的PostgreSQL
 https://www.calazan.com/migrating-django-app-from-mysql-to-postgresql/  
+https://jaketrent.com/post/django-loaddata-heroku/  
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
