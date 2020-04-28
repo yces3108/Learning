@@ -156,6 +156,8 @@ https://www.cnblogs.com/cckui/p/10444246.html
 https://medium.com/@andyludeveloper/%E7%8E%A9-django-part-6-%E6%9F%A5%E8%A9%A2%E8%B3%87%E6%96%99-query-model-af542ed8eb5e
 ### 程式碼風格管理：prettier
 https://zhuanlan.zhihu.com/p/81764012  
+### 將local的MySQL資料庫先變成JSON再上傳雲端的PostgreSQL
+https://www.calazan.com/migrating-django-app-from-mysql-to-postgresql/  
 
 ## 疑難雜症
 ### 在axios裡的then的函式被報錯'response' is defined but never used
